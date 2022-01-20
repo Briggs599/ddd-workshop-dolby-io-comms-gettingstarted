@@ -46,7 +46,8 @@ To get started sign-in to each platform in a different tab and follow along with
 - Fill-in the other fields with your **CONSUMER_KEY** and **CONSUMER_SECRET** which you can find in the Dolby.io dashboard.
     These values will be stored in the site's deployment settings as pre-populated environment variables.
 - Click **Save and Deploy** to continue; and in about 45 seconds, Netlify will automatically clone the repo and create a new site on Netlify.
-- 
-  ![Auth Dialog](ddd-workshop-auth-screen.png)
 
 -  Once it has deployed, you'll find both the link to the GitHub clone and your project's URL at the top of the site overview page in your Netlify admin console, from there and you'll be able to visit the new site you just created.
+  
+
+  ![Auth Dialog](ddd-workshop-complete.png)
