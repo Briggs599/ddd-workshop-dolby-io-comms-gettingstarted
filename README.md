@@ -30,8 +30,14 @@ To get started sign-in to each platform in a different tab and follow along with
   - Next click this button:
   
     [![Deploy To Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/dzeitman/ddd-workshop-dolby-io-comms-gettingstarted)
-  - You'll see an auth dialog to link your account to Netlify. 
-    - Netlify will then present a form with the name of this repo, feel free to modify it to something else if desired. This name will the GitHub repo name of this cloned project.
+  - You'll see an auth dialog to save a clone of this project to your GitHub account and deploy to Netlify. 
+  ![Auth Dialog](ddd-workshop-connect.png)
+   
+  -  Next, you'll need to fill-in a few values before hiting Save and Deploy
+
+![Auth Dialog](ddd-workshop-auth-screen.png)
+
+- **Repository Name**  which will be set to the name of this repo; feel free to modify the name to something else if desired. This will be the name of the cloned version you'll see associated with your GitHub account or organization.
     - Fill-in the other fields with your **CONSUMER_KEY** and **CONSUMER_SECRET** which you can find in the Dolby.io dashboard.
     These values will be stored in the site's deployment settings as pre-populated environment variables.
    	-  In about 45 seconds, Netlify will automatically clone the repo.
