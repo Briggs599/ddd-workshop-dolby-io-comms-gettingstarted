@@ -1,8 +1,7 @@
 const avengersNames = ['Thor', 'Cap', 'Tony Stark', 'Black Panther', 'Black Widow', 'Hulk', 'Spider-Man'];
 let randomName = avengersNames[Math.floor(Math.random() * avengersNames.length)];
 
-
-
+// URL to our token-generator function
 const tokenServerURL = './api/token-generator';
 
 const main = async () => {
@@ -45,11 +44,11 @@ const main = async () => {
     removeParticipantNode(participant);
   });
 
+  // Please read the documentation at:
+  // https://docs.dolby.io/communications-apis/docs/initializing-javascript
+
   try {
     // Initialize the Voxeet SDK
-    // WARNING: It is best practice to use the VoxeetSDK.initializeToken function to initialize the SDK.
-    // Please read the documentation at:
-    // https://docs.dolby.io/communications-apis/docs/initializing-javascript
 
     let token = await refreshToken();
     await VoxeetSDK.initializeToken(token, refreshToken);
@@ -66,10 +65,12 @@ const main = async () => {
 
 main();
 
+
 /**  Refresh Token is called when token expiration is 50% completed, this keeps the app initialized */
+/** We will use a post method to match our serverless function's restriction */
 async function refreshToken() {
-  return fetch(tokenServerURL,{
-    method: 'post',
+  return fetch(tokenServerURL, {
+    method: 'post'
   })
     .then((res) => {
       return res.json();
@@ -79,5 +80,3 @@ async function refreshToken() {
       console.error(error);
     });
 }
-
-

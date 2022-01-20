@@ -14,6 +14,5 @@
   status = 200
   
 [template.environment]
-  CONSUMER_KEY = "Get your Consumer Key from https://dolby.io/"
-  CONSUMER_SECRET = "Get your Consumer Secret from https://dolby.io/"
-  TOKEN_URL = "https://dio-spatial-token-server.netlify.app/api/token-generator"
+  CONSUMER_KEY = "Consumer Key (from dolby.io)"
+  CONSUMER_SECRET = "Consumer Secret (from dolby.io)"

@@ -45,11 +45,16 @@ async function fetchToken() {
 }
 
 exports.handler = async (event) => {
-    // Only allow POST
-  if (event.httpMethod !== "POST") {
-    return { statusCode: 405, body: "Method Not Allowed" };
-    console.log(event.headers);
-  }
-  let response = await fetchToken();
-  return response;
+  // Only allow POST
+if (event.httpMethod !== "POST") {
+  return { statusCode: 405, body: "Method Not Allowed" };
+}
+
+// restrict to allow only from same domain host url
+if(event.headers.origin != SITE_URL){
+  return { statusCode: 405, body: "Method Not Allowed" };
+}
+
+let response = await fetchToken();
+return response;
 };
