@@ -2,11 +2,11 @@ const axios = require('axios');
 require('dotenv').config()
 
 /* 
-Setup your enviornment variables on Netlify, under settings / deploy:  
+Manage your enviornment variables on Netlify, under settings / deploy:  
 https://app.netlify.com/sites/<your-app-name>/settings/deploys
 to match CONSUMER_KEY, CONSUMER_SECRET
 */
-
+const SITE_URL =  process.env.URL;
 const CONSUMER_KEY = process.env.CONSUMER_KEY;
 const CONSUMER_SECRET = process.env.CONSUMER_SECRET;
 const credentials = new Buffer.from(
@@ -45,16 +45,16 @@ async function fetchToken() {
 }
 
 exports.handler = async (event) => {
-  // Only allow POST
-if (event.httpMethod !== "POST") {
-  return { statusCode: 405, body: "Method Not Allowed" };
-}
+    // Only allow POST
+  if (event.httpMethod !== "POST") {
+    return { statusCode: 405, body: "Method Not Allowed" };
+  }
 
-// restrict to allow only from same domain host url
-if(event.headers.origin != SITE_URL){
-  return { statusCode: 405, body: "Method Not Allowed" };
-}
-
-let response = await fetchToken();
-return response;
+ // restrict to allow only from same domain host url
+  if(event.headers.origin != SITE_URL){
+    return { statusCode: 405, body: "Method Not Allowed" };
+  }
+ 
+  let response = await fetchToken();
+  return response;
 };
