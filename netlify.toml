@@ -1,0 +1,19 @@
+[dev] 
+  publish = "www"
+  command = "echo No build command yet!"
+  functions = "functions"
+  
+[build] 
+  publish = "www"
+  command = "echo No build command yet!"
+  functions = "functions"
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+  
+[template.environment]
+  CONSUMER_KEY = "Get your Consumer Key from https://dolby.io/"
+  CONSUMER_SECRET = "Get your Consumer Secret from https://dolby.io/"
+  TOKEN_URL = "https://dio-spatial-token-server.netlify.app/api/token-generator"
