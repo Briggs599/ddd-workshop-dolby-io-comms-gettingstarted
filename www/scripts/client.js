@@ -68,7 +68,9 @@ main();
 
 /**  Refresh Token is called when token expiration is 50% completed, this keeps the app initialized */
 async function refreshToken() {
-  return fetch(tokenServerURL)
+  return fetch(tokenServerURL,{
+    method: 'post',
+  })
     .then((res) => {
       return res.json();
     })
