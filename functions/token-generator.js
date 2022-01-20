@@ -45,6 +45,11 @@ async function fetchToken() {
 }
 
 exports.handler = async (event) => {
+    // Only allow POST
+  if (event.httpMethod !== "POST") {
+    return { statusCode: 405, body: "Method Not Allowed" };
+    console.log(event.headers);
+  }
   let response = await fetchToken();
   return response;
 };
