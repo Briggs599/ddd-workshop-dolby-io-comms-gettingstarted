@@ -34,7 +34,7 @@ const widget = async () => {
         script.type = "text/javascript";
         script.id = 'ui';
         script.src = config.ui;
-        document.getElementsByTagName('body')[0].appendChild(script);
+        document.getElementsByTagName('head')[0].appendChild(script);
     }
 
 
