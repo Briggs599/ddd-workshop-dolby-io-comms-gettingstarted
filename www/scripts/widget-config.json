@@ -3,5 +3,6 @@
     "ui": "scripts/ui.js",
     "client": "scripts/client.js",
     "mediaDevices": "media-devices",
+    
     "participants": "participants"
 }

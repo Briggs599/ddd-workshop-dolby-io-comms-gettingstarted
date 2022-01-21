@@ -4,34 +4,35 @@ const widget = async () => {
 
     var thisWidgetScript = document.getElementById('dolbyio-widget-script');
 
-
-    console.log(thisWidgetScript);
-
     const getConfig = async () => {
         let result = await fetch(thisWidgetScript.dataset.config);
         let config = await result.json();
         return config;
     }
+
     let config = await getConfig();
 
 
-    const createSDKScript = () => {
+    const createSDKScript = async () => {
         var script = document.createElement('script');
         script.type = "text/javascript";
+        script.id = 'sdk';
         script.src = config.VoxeetSDK;
         document.getElementsByTagName('head')[0].appendChild(script);
     }
 
-    const createClientScript = () => {
+    const createClientScript = async () => {
         var script = document.createElement('script');
         script.type = "text/javascript";
+        script.id = 'client'
         script.src = config.client;
         document.getElementsByTagName('body')[0].appendChild(script);
     }
 
-    const createUIScript = () => {
+    const createUIScript = async () => {
         var script = document.createElement('script');
         script.type = "text/javascript";
+        script.id = 'ui';
         script.src = config.ui;
         document.getElementsByTagName('body')[0].appendChild(script);
     }
@@ -42,11 +43,15 @@ const widget = async () => {
             init(VoxeetSDK);
             return
         } else {
-            // add our SDK to head
-            createSDKScript();
-            setTimeout(() => {
-                defer(method);
-            }, 50)
+            // add our SDK to head and UI and Client scripts
+                try {
+                    Promise.all([createSDKScript(),createUIScript(),createClientScript()]);
+                    setTimeout(() => {
+                        defer(method);
+                    }, 1000)
+                } catch(e) {
+                    console.log("_____error injecting scripts:", e)
+                }
         }
     }
 
@@ -54,12 +59,11 @@ const widget = async () => {
     defer();
 
     const init = (VoxeetSDK) => {
-        createClientScript();
-        createUIScript();
+      
         console.log("VoxeetSDK init");
 
         console.log(VoxeetSDK.version);
-        //   alert("SDK Version " +  VoxeetSDK.version);
+     
 
         let appHTML = `
         <div id="app"> 
