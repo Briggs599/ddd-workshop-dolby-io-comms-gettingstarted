@@ -107,7 +107,6 @@ const initUI = () => {
   };
 
   const enumerateMediaDevices = () => {
-
     // Load the Output Audio devices
     VoxeetSDK.mediaDevice.enumerateAudioDevices("output")
       .then(devices => {
@@ -140,7 +139,6 @@ const initUI = () => {
         setVideoDeviceBtn.disabled = false;
       })
       .catch(err => console.error(err));
-
   }
 
   leaveButton.onclick = () => {
