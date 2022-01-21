@@ -1,7 +1,7 @@
 {
-    "ui": "ui.js",
-    "client": "client.js",
-    "mediaDevices": "media-devices",
+    "VoxeetSDK": "https://unpkg.com/@voxeet/voxeet-web-sdk",
+    "ui": "scripts/ui.js",
+    "client": "scripts/client.js",
     "mediaDevices": "media-devices",
     "participants": "participants"
 }
