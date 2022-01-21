@@ -63,7 +63,7 @@ const widget = async () => {
         console.log("VoxeetSDK init");
 
         console.log(VoxeetSDK.version);
-       await Promise.all([createUIScript(),createClientScript()]);
+        Promise.all([createUIScript(),createClientScript()]);
 
         let appHTML = `
         <div id="app"> 
