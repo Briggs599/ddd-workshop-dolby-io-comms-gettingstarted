@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Basic Web Video Conference Application</title>
@@ -18,10 +19,13 @@
 <body>
 
     <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-white portfolio-navbar gradient">
-        <div class="container"><a class="navbar-brand logo" href="#">Dolby.io Developer Days Workshop</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navbarNav"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="container"><a class="navbar-brand logo" href="#">Dolby.io Developer Days Workshop</a><button
+                data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navbarNav"><span
+                    class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="https://dashboard.dolby.io" target="newWin">Dolby.io Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://dashboard.dolby.io" target="newWin">Dolby.io
+                            Dashboard</a></li>
                 </ul>
             </div>
         </div>
@@ -31,16 +35,23 @@
             <div class="container">
                 <div id="app">
                     <h1 id="name-message">Logging in...</h1>
-            
+
                     <!-- Join or Leave a Conference -->
                     <div id="form">
                         <label>Conference alias :</label>
                         <input id="alias-input" value="dev-portal" />
                         <button id="join-btn" disabled>Join</button>
                         <button id="leave-btn" disabled>Leave</button>
-                        <label id="label-dolby-voice"></label>
+                       
+                        <div class="container">
+                            <label id="label-dolby-voice" class="text text-primary"></label>
+                            <div role="group" class="btn-group">
+                                <button class="btn btn-primary" type="button" disabled>Off</button>
+                                <button class="btn btn-primary" type="button">On</button>
+                            </div>
+                        </div>
                     </div>
-                    
+
                     <!-- Actions on Video and Screen Share -->
                     <div id="actions">
                         <button id="start-video-btn" disabled>Start video</button>
@@ -50,34 +61,35 @@
                         <button id="start-screenshare-btn" disabled>Start screen share</button>
                         <button id="stop-screenshare-btn" disabled>Stop screen share</button>
                     </div>
-            
+
                     <!-- Recording Actions and Status -->
                     <div id="recording">
                         <button id="start-recording-btn" disabled>Start recording</button>
                         <button id="stop-recording-btn" disabled>Stop recording</button>
                         <p id="record-status" style="color: red;"></p>
                     </div>
-                    
+
                     <!-- Media Devices Selection -->
                     <div id="media-devices">
                         <h3>Media Devices</h3>
                         <!-- Video Devices -->
-                        <div class="form">
-                            <label for="video-devices">Video Devices:</label>
+                        <div class="media-devices-video-input">
+
+                            <label for="video-devices">Camera </label>
                             <select id="video-devices" class="custom-select"></select>
                             <button id="set-video-device-btn" type="button" disabled>Set</button>
                         </div>
-            
+
                         <!-- Input Audio Devices -->
-                        <div class="form">
-                            <label for="input-audio-devices">Input Audio Devices:</label>
+                        <div class="media-devices-audio-input">
+                            <label for="input-audio-devices">Microphone/Aux </label>
                             <select id="input-audio-devices" class="custom-select"></select>
                             <button id="set-input-audio-device-btn" type="button" disabled>Set</button>
                         </div>
-            
+
                         <!-- Output Audio Devices -->
-                        <div class="form">
-                            <label for="output-audio-devices">Output Audio Devices:</label>
+                        <div class="media-devices-audio-output">
+                            <label for="output-audio-devices">Speaker/Aux Output </label>
                             <select id="output-audio-devices" class="custom-select"></select>
                             <button id="set-output-audio-device-btn" type="button" disabled>Set</button>
                         </div>
@@ -87,22 +99,26 @@
                         <h3>Participants</h3>
                         <ul id="participants-list"></ul>
                     </div>
-            
+
                     <!-- Container for the video streams -->
                     <div id="video-container"></div>
-            
+
                     <!-- Container for the Screen Share -->
                     <div id="screenshare-container"></div>
                 </div>
-            
+
             </div>
         </section>
     </main>
     <footer class="page-footer">
-        <div class="container"><a href="https://app.netlify.com/start/deploy?repository=https://github.com/dzeitman/ddd-workshop-dolby-io-comms-gettingstarted" target="_blank"><img src="https://camo.githubusercontent.com/417d890ba67c98ad5856b715343a61cdbf07d72b9bd5b79dd45d43de634c29ea/68747470733a2f2f7777772e6e65746c6966792e636f6d2f696d672f6465706c6f792f627574746f6e2e737667"></a></div>
+        <div class="container"><a
+                href="https://app.netlify.com/start/deploy?repository=https://github.com/dzeitman/ddd-workshop-dolby-io-comms-gettingstarted"
+                target="_blank"><img
+                    src="https://camo.githubusercontent.com/417d890ba67c98ad5856b715343a61cdbf07d72b9bd5b79dd45d43de634c29ea/68747470733a2f2f7777772e6e65746c6966792e636f6d2f696d672f6465706c6f792f627574746f6e2e737667"></a>
+        </div>
     </footer>
     <!-- end -->
-      <!-- Application Code -->
+    <!-- Application Code -->
     <script type="text/javascript" src="scripts/client.js"></script>
 
     <!-- Bootstrap Theme -->
@@ -110,4 +126,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/pikaday.min.js"></script>
     <script src="assets/js/theme.js"></script>
 </body>
+
 </html>

@@ -1,0 +1,7 @@
+{
+    "ui": "ui.js",
+    "client": "client.js",
+    "mediaDevices": "media-devices",
+    "mediaDevices": "media-devices",
+    "participants": "participants"
+}
