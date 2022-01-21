@@ -56,7 +56,7 @@ const initUI = () => {
       rtcpMode: "average", // worst, average, max
       ttl: 0,
       videoCodec: "H264", // H264, VP8
-      dolbyVoice: true
+      dolbyVoice: false
     };
 
     // See: https://docs.dolby.io/interactivity/docs/js-client-sdk-model-conferenceoptions
