@@ -45,7 +45,7 @@ const widget = async () => {
         } else {
             // add our SDK to head and UI and Client scripts
                 try {
-                    Promise.all([createSDKScript(),createUIScript(),createClientScript()]);
+                    Promise.all([createSDKScript()]);
                     setTimeout(() => {
                         defer(method);
                     }, 1000)
@@ -63,7 +63,7 @@ const widget = async () => {
         console.log("VoxeetSDK init");
 
         console.log(VoxeetSDK.version);
-     
+       await Promise.all([createUIScript(),createClientScript()]);
 
         let appHTML = `
         <div id="app"> 
